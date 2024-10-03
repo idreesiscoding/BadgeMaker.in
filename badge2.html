@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-MY7Q3S7N94"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-MY7Q3S7N94');
+	</script>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="author" content="Untree.co">
+	<link rel="shortcut icon" href="images/log.png">
+	<meta name="description" content="" />
+	<meta name="keywords" content="bootstrap, bootstrap4" />
+	<!-- Bootstrap CSS -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+	<link href="css/tiny-slider.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+	<title>BadgeMaker.in</title>
+</head>
+
+<body>
+
+	<!-- Start Header/Navigation -->
+	<nav class="custom-navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
+		<div class="container">
+			<a class="navbar-brand" href="index.html">BadgeMaker.in</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+		</div>
+	</nav>
+	<!-- End Header/Navigation -->
+
+	<!-- Start Why Choose Us Section -->
+	<div class="why-choose-section">
+		<div class="container">
+			<section class="calculator-section">
+				<div class="calculator">
+					<header>Estimate Generator</header>
+					
+					<form>
+						<!-- Removed product selection dropdown and replaced quantity dropdown with input field -->
+					  
+						<label for="quantity">Enter Number of Badges:</label>
+						<input type="number" id="quantity" min="1" value="1" oninput="updateTotalPrice()" />
+				  
+						<div id="output">Total Price: Rs<span id="totalPrice">0</span></div>
+				  
+						<button type="button" onclick="sendToWhatsApp()">Send to WhatsApp</button>
+					</form>
+				</div>
+			  
+				<!-- Product preview container -->
+				<div class="product-preview" id="productPreview">
+					<img src="badge.png" alt="Badge Preview">
+				</div>
+
+				<script>
+					const productData = {
+						badge: { minPrice: 40, image: 'badge.png' }
+					};
+
+					function updateTotalPrice() {
+						var quantity = parseInt(document.getElementById('quantity').value);
+						if (isNaN(quantity) || quantity < 1) {
+							quantity = 1; // Ensure minimum quantity is 1
+							document.getElementById('quantity').value = 1;
+						}
+						const totalPrice = productData.badge.minPrice * quantity;
+						document.getElementById('totalPrice').textContent = totalPrice;
+					}
+
+					function sendToWhatsApp() {
+						const quantity = document.getElementById('quantity').value;
+						const price = document.getElementById('totalPrice').textContent;
+						window.location.replace(`https://api.whatsapp.com/send/?phone=916305032378&text=Sending to WhatsApp: Product - Button Badge, Quantity - ${quantity}, price - Rs.${price}`);
+					}
+
+					// Initial setup
+					updateTotalPrice();
+				</script>
+			</section>
+		</div>
+	</div>
+	<!-- End Why Choose Us Section -->
+
+	<!-- Start Footer Section -->
+	<footer class="footer-section">
+		<div class="container relative">
+			<div class="row g-5 mb-5">
+				<div class="col-lg-4">
+					<div class="mb-4 footer-logo-wrap"><a href="#" class="footer-logo">Famous Blocks</a></div>
+					<p class="mb-4">Famous Blocks is a creative agency that helps brands grow through our seamless customer experience and high quality prints.</p>
+
+					<ul class="list-unstyled custom-social">
+						<li><a href="https://m.facebook.com/p/Famous-Blocks-100065291358941/?wtsid=rdr_0KusaMXbnOy2hS7Gw"><span class="fa fa-brands fa-facebook-f"></span></a></li>
+						<li><a href="https://twitter.com/famousblocks"><span class="fa fa-brands fa-twitter"></span></a></li>
+						<li><a href="https://instagram.com/famousblocksindia"><span class="fa fa-brands fa-instagram"></span></a></li>
+						<li><a href="https://www.linkedin.com/company/famousblocks?trk=profile-position"><span class="fa fa-brands fa-linkedin"></span></a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="border-top copyright">
+				<div class="row pt-4">
+					<div class="col-lg-6">
+						<p class="mb-2 text-center text-lg-start">Copyright &copy;<script>document.write(new Date().getFullYear());</script>. All Rights Reserved. &mdash; Designed with love by <a href="https://instagram.com/famousblocksindia/">Famous Blocks</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- End Footer Section -->
+
+	<script src="js/bootstrap.bundle.min.js"></script>
+	<script src="js/tiny-slider.js"></script>
+	<script src="js/custom.js"></script>
+</body>
+
+</html>
